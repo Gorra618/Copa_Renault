@@ -3,14 +3,108 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_page.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Oi&family=Varela+Round&display=swap"
+        rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{data.title}}</title>
 </head>
 
 <body>
-    <h1 style="text-align: center;">COPA RENAULT 🏆</h1>
-    <h2 style="text-align: center;">Pagina oficial de la Copa Renault</h2>
 
+
+    <!-- HEADER -->
+    <nav>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/image.png') }}" alt="Logo" />
+        </div>
+        <ul>
+            <li><a class="active" href="#">Log In</a></li>
+            <li><a class="active" href="#">Sign Up</a></li>
+        </ul>
+    </nav>
+    <header>
+        <div class="headline">
+            <div class="background">
+
+                <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
+                    <defs>
+                        <style>
+                            @keyframes rotate {
+                                0% {
+                                    transform: rotate(0deg);
+                                }
+
+                                100% {
+                                    transform: rotate(360deg);
+                                }
+                            }
+
+                            .out-top {
+                                animation: rotate 20s linear infinite;
+                                transform-origin: 13px 25px;
+                            }
+
+                            .in-top {
+                                animation: rotate 10s linear infinite;
+                                transform-origin: 13px 25px;
+                            }
+
+                            .out-bottom {
+                                animation: rotate 25s linear infinite;
+                                transform-origin: 84px 93px;
+                            }
+
+                            .in-bottom {
+                                animation: rotate 15s linear infinite;
+                                transform-origin: 84px 93px;
+                            }
+                        </style>
+                    </defs>
+                    <path fill="#ffcc00" class="out-top"
+                        d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z" />
+                    <path fill="#696864" class="in-top"
+                        d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z" />
+                    <path fill="#ffcc00" class="out-bottom"
+                        d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z" />
+                    <path fill="#696864" class="in-bottom"
+                        d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z" />
+                </svg>
+            </div>
+            <div class="inner">
+                <h1 class="Titulo1" style="text-align: center;">COPA RENAULT</h1>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- FOOTER -->
+    <footer class="fixed_footer">
+        <p style="font-family: Abel;">&copy; 2025 Instituto Tecnico Renault. Todos los derechos reservados.</p>
+        <nav>
+            <a href="/contacto">Contacto</a> |
+            <a href="/privacidad">Política de Privacidad</a> |
+            <a href="/terminos">Términos y Condiciones</a>
+        </nav>
+    </footer>
+
+
+    <!-- MAIN -->
+    <main class="main_content">
+        <div class="content">
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.206134594838!2d-64.26064792370376!3d-31.463515274240155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a19b63649767%3A0x1c8f9284233f5d9b!2sInstituto%20T%C3%A9cnico%20Renault!5e0!3m2!1ses!2sar!4v1749755240863!5m2!1ses!2sar"
+                    width="800" height="1vh" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+    </main>
+    <script src="{{ url_for('static', filename='js/main_page.js') }}"></script>
 </body>
 
 </html>
