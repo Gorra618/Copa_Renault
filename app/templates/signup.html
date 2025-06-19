@@ -10,18 +10,23 @@
 <body>
     <h1>Registrarse</h1>
     <form method="POST" action="{{url_for('signup')}}">
-        <p>DNI</p>
-        <input class="DNI" type="text">
-        <P>Nombre</P>
-        <input class="name" type="text">
-        <p>Apellidos</p>
-        <input class="lastname" type="text">
-        <p>Actividad (Jugador o Visitante)</p>
-        <input class="activity" type="text">
-        <p>Escuela</p>
-        <input class="school" type="text">
-        <p>Enviar</p>
-        <input type="submit">
+        <input class="DNI" type="text" placeholder="Insgrese su dni" name="dni" required>
+        <input class="name" type="text" placeholder="Insgrese su nombre" name="nombre" required>
+        <input class="lastname" type="text" placeholder="Insgrese su apellido" name="apellidos" required>
+        <label for="actividad">Actividad:</label>
+        <select class="activity" name="actividad" id="actividad" required>
+            <option value="" disabled selected>Seleccione su actividad</option>
+            <option value="Visitante">Visitante</option>
+            <option value="Jugador">Jugador</option>
+        </select>
+        <label for="escuela">Escuela:</label>
+        <select class="school" name="escuela" id="escuela" required>
+            <option value="" disabled selected>Seleccione su escuela</option>
+            <option value="ITR">ITR</option>
+            <option value="Luti">Luti</option>
+            <option value="Ipet 76">Ipet 76</option>
+        </select>
+        <input type="submit" placeholder="">
     </form>
 </body>
 

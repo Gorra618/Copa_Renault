@@ -24,9 +24,27 @@ def login():
     data = {"title": "Login"}
     return render_template("login.html", data=data)
 
-@app.route("/signup")
+
+@app.route("/signup", methods=["GET", "POST"])
 def signup():
-    data = { "title":"Sign Up"}
-    return render_template("signup.html",data=data)
+    if request.method == "POST":
+        dni = request.form["dni"]
+        nombre = request.form["nombre"]
+        apellidos = request.form["apellidos"]
+        actividad = request.form["actividad"]
+        escuela = request.form["escuela"]
+
+        cur = mysql.connection.cursor()
+        cur.execute(
+            "INSERT INTO usuarios (dni,nombre,apellidos, actividad, escuela) VALUES (%s,%s,%s,%s,%s)",
+            (dni, nombre, apellidos, actividad, escuela),
+        )
+        mysql.connection.commit()
+        cur.close()
+        return redirect(url_for("index"))
+    data = {"title": "Sign Up"}
+    return render_template("signup.html", data=data)
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=3300)
