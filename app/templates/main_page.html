@@ -22,8 +22,8 @@
             <img src="{{ url_for('static', filename='img/image.png') }}" alt="Logo" />
         </div>
         <ul>
-            <li><a class="active" href="#">Log In</a></li>
-            <li><a class="active" href="#">Sign Up</a></li>
+            <li><a class="active" href="{{ url_for('login') }}">Log In</a></li>
+            <li><a class="active" href="{{ url_for('signup' )}}">Sign Up</a></li>
         </ul>
     </nav>
     <header>
@@ -101,8 +101,13 @@
                     width="800" height="1vh" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+            <div class="pages">
+                <button class="btn">Equipos</button>
+                <button class="btn">Escuelas</button>
+                <button class="btn">Cantina</button>
+                <button class="btn">Organizadores</button>
+            </div>
         </div>
-
     </main>
     <script src="{{ url_for('static', filename='js/main_page.js') }}"></script>
 </body>

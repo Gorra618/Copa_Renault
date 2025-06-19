@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Oi&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{data.title}}</title>
+</head>
+</head>
+
+<body>
+    <h1>Iniciar Sesion</h1>
+    <form>
+        <p>Usuario</p>
+        <input class="username" type="text"></input>
+        <p>Gmail</p>
+        <input class="gmail" type="text" />
+        <p>Contraseña</p>
+        <input class="password" type="text" />
+        <p>Enviar</p>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
