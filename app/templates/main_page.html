@@ -22,8 +22,15 @@
             <img src="{{ url_for('static', filename='img/image.png') }}" alt="Logo" />
         </div>
         <ul>
-            <li><a class="active" href="{{ url_for('login') }}">Log In</a></li>
-            <li><a class="active" href="{{ url_for('signup' )}}">Sign Up</a></li>
+            {% if session['usuario'] %}
+            <li style="margin-right: 16px; display: flex; align-items: center;">
+                <span style="font-family: sans-serif; color: #ffffff; 	margin: 7px 0 0 20px;">Hola {{nombre_usuario}}</span>
+            </li>
+            <li><a class="active" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+            {% else %}
+            <li><a class="active" href="{{ url_for('login') }}">Iniciar Sesion</a></li>
+            <li><a class="active" href="{{ url_for('signup') }}">Registrarse</a></li>
+            {% endif %}
         </ul>
     </nav>
     <header>

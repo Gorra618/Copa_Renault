@@ -16,16 +16,15 @@
 
 <body>
     <h1>Iniciar Sesion</h1>
-    <form>
-        <p>Usuario</p>
-        <input class="username" type="text"></input>
-        <p>Gmail</p>
-        <input class="gmail" type="text" />
-        <p>Contraseña</p>
-        <input class="password" type="text" />
-        <p>Enviar</p>
-        <input type="submit">
+    <form method="POST" action="{{ url_for('login') }}">
+        <input type="text" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <input type="submit" value="Iniciar Sesión">
     </form>
+    {% if error %}
+    <p style="color: red; margin-top: 10px;">{{ error }}</p>
+    {% endif %}
+</body>
 </body>
 
 </html>

@@ -10,9 +10,11 @@
 <body>
     <h1>Registrarse</h1>
     <form method="POST" action="{{url_for('signup')}}">
-        <input class="DNI" type="text" placeholder="Insgrese su dni" name="dni" required>
         <input class="name" type="text" placeholder="Insgrese su nombre" name="nombre" required>
         <input class="lastname" type="text" placeholder="Insgrese su apellido" name="apellidos" required>
+        <input class="DNI" type="text" placeholder="Insgrese su dni" name="dni" required>
+        <input class="mail" type="text" placeholder="Insgrese su email" name="email" required>
+        <input class="pswrd" type="text" placeholder="Insgrese su contraseña" name="password" required>
         <label for="actividad">Actividad:</label>
         <select class="activity" name="actividad" id="actividad" required>
             <option value="" disabled selected>Seleccione su actividad</option>
