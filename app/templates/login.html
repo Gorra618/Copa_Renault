@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,19 +11,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{data.title}}</title>
 </head>
-</head>
 
 <body>
-    <h1>Iniciar Sesion</h1>
-    <form method="POST" action="{{ url_for('login') }}">
-        <input type="text" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <input type="submit" value="Iniciar Sesión">
+    {% include 'navbar.html' %}
+    <h1 class="login-title">Iniciar Sesion</h1>
+    <form class="login-container" method="POST" action="{{ url_for('login') }}">
+        <input class="login-input" type="text" name="email" placeholder="Email" required>
+        <input class="login-input" type="password" name="password" placeholder="Contraseña" required>
+        <input class="login-submit" type="submit" value="Iniciar Sesión">
     </form>
-    {% if error %}
-    <p style="color: red; margin-top: 10px;">{{ error }}</p>
-    {% endif %}
-</body>
+
 </body>
 
 </html>

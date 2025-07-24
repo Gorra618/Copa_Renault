@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, jsonify, session
 from flask_mysqldb import MySQL
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
@@ -46,6 +47,7 @@ def login():
             error = "Contraseña Incorrecta intentelo de nuevo"
     return render_template("login.html", data=data, error=error)
 
+
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if "usuario" in session:
@@ -73,14 +75,35 @@ def signup():
     return render_template("signup.html", data=data)
 
 
-@app.context_processor
-def inject_user():
-    return dict(nombre_usuario=session.get("nombre"))
-
 @app.route("/logout")
 def logout():
     session.pop("usuario", None)
     return redirect(url_for("index"))
+
+
+@app.route("/teams")
+def teams():
+    return render_template("teams.html")
+
+
+@app.route("/schools")
+def schools():
+    return render_template("schools.html")
+
+
+@app.route("/shop")
+def shop():
+    return render_template("shop.html")
+
+
+@app.route("/owners")
+def owners():
+    return render_template("owners.html")
+
+
+@app.context_processor
+def inject_user():
+    return dict(nombre_usuario=session.get("nombre"))
 
 
 if __name__ == "__main__":
