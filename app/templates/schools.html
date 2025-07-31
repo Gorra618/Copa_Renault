@@ -1,11 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/schools.css') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schools</title>
 </head>
+
 <body>
-    
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="{{ url_for('static', filename='img/image.png') }}" alt="Logo" style="height:40px; width:auto;" />
+        </div>
+        <ul class="navbar-links">
+            {% if session['usuario'] %}
+            <li>
+                <span style="font-family: sans-serif; color: #ffffff; margin-right: 20px;">Hola
+                    {{nombre_usuario}}</span>
+            </li>
+            <li><a class="navbar-link" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+            <li><a class="navbar-link" href="{{ url_for('index') }}">INICIO</a></li>
+            {% else %}
+            <li><a class="navbar-link" href="{{ url_for('login') }}">Iniciar Sesión</a></li>
+            <li><a class="navbar-link" href="{{ url_for('signup') }}">Registrarse</a></li>
+            <li><a class="navbar-link" href="{{ url_for('index') }}">INICIO</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- FOOTER  -->
+    <footer class="fixed_footer">
+        <p style="font-family: Abel;">&copy; 2025 Instituto Tecnico Renault. Todos los derechos reservados.</p>
+        <nav>
+            <a class="footers-btns" href="/contacto">Contacto</a> |
+            <a class="footers-btns" href="/privacidad">Política de Privacidad</a> |
+            <a class="footers-btns" href="/terminos">Términos y Condiciones</a>
+        </nav>
+    </footer>
+    <main class="main_content">
+        <div class="floating-stack">
+            <dl>
+                <dt>A</dt>
+                <dd>Academia Argüello</dd>
+                <dd>Adoratrices</dd>
+                <dd>Adventista</dd>
+                <dd>Alemán</dd>
+                <dd>Amparo de María</dd>
+                <dd>Anglo Americano AG</dd>
+
+                <dt>B</dt>
+                <dd>Balseiro</dd>
+                <dd>Bioy Casares</dd>
+
+                <dt>C</dt>
+                <dd>Caixal</dd>
+                <dd>Castelfranco</dd>
+                <dd>Cinco Ríos</dd>
+                <dd>Colegio 25 de Mayo</dd>
+                <dd>Colegio del Carmen</dd>
+                <dd>Colegio Gral Manuel Belgrano Armenio</dd>
+                <dd>Colegio María de Nazareth</dd>
+                <dd>Corazón de María</dd>
+                <dd>Cristo Rey</dd>
+
+                <dt>D</dt>
+                <dd>Dante Alighieri</dd>
+                <dd>Dante Alighieri Carlos Paz</dd>
+                <dd>De María</dd>
+                <dd>Domingo Savio</dd>
+                <dd>Dominicas</dd>
+                <dd>Don Orione</dd>
+
+                <dt>E</dt>
+                <dd>El Salvador</dd>
+                <dd>El Torreón</dd>
+                <dd>Escuela Kumelen</dd>
+                <dd>Escuelas Pías Mendiolaza</dd>
+                <dd>Escuti</dd>
+                <dd>Espíritu Santo</dd>
+
+                <dt>F</dt>
+                <dd>FASTA Santo Domingo</dd>
+                <dd>Fasta Villa Eucarística</dd>
+
+                <dt>G</dt>
+                <dd>García Faure</dd>
+
+                <dt>H</dt>
+                <dd>Hortus Conclusus</dd>
+                <dd>Huerto</dd>
+
+                <dt>I</dt>
+                <dd>Inmaculada</dd>
+                <dd>Instituto América</dd>
+                <dd>Instituto Educativo Cita con la Vida</dd>
+                <dd>Instituto Inmaculada Concepción</dd>
+                <dd>Instituto Juan Zorrilla de San Martín</dd>
+                <dd>Instituto Ramón García Martínez (Casona)</dd>
+                <dd>Instituto San Jerónimo</dd>
+                <dd>Instituto Santísima Trinidad</dd>
+                <dd>Instituto Técnico Renault</dd>
+                <dd>Integral Manuel Belgrano</dd>
+                <dd>Isaac Newton</dd>
+
+                <dt>J</dt>
+                <dd>Jesús María</dd>
+                <dd>Jockey</dd>
+                <dd>Jorge Vocos Lescano</dd>
+                <dd>José Hernández</dd>
+                <dd>Jóvenes Argentinos</dd>
+
+                <dt>L</dt>
+                <dd>La Salle</dd>
+                <dd>Loreto</dd>
+                <dd>Luis Manuel Robles</dd>
+                <dd>Luterano</dd>
+
+                <dt>M</dt>
+                <dd>Madres Escolapias</dd>
+                <dd>Mantovani</dd>
+                <dd>Manuel de Falla</dd>
+                <dd>Mark Twain</dd>
+                <dd>Maryland</dd>
+                <dd>Mater Purissima</dd>
+                <dd>Milenio</dd>
+                <dd>Misericordia</dd>
+                <dd>Monjas Azules</dd>
+                <dd>Monserrat</dd>
+
+                <dt>N</dt>
+                <dd>Nievas</dd>
+                <dd>Nores</dd>
+                <dd>Nuestra Señora de La Merced</dd>
+                <dd>Nuevo Siglo</dd>
+
+                <dt>P</dt>
+                <dd>Padre Claret</dd>
+                <dd>Parroquial Nuestra Señora del Valle</dd>
+                <dd>Paula Albarracín</dd>
+                <dd>Peña</dd>
+                <dd>Pías</dd>
+                <dd>Pio X</dd>
+                <dd>Primera Enseñanza</dd>
+
+                <dt>R</dt>
+                <dd>Raggi</dd>
+                <dd> Vera Peñaloza</dd>
+
+                <dt>S</dt>
+                <dd>Sagrada Familia</dd>
+                <dd>Sagrado Corazón</dd>
+                <dd>San Agustín</dd>
+                <dd>San Antonio de Padua</dd>
+                <dd>San Buenaventura</dd>
+                <dd>San Francisco de Asís</dd>
+                <dd>San Isidro</dd>
+                <dd>San Jorge</dd>
+                <dd>San José Artesano</dd>
+                <dd>San José Centro</dd>
+                <dd>San José Sol de Mayo</dd>
+                <dd>San Miguel</dd>
+                <dd>San Pablo Apóstol</dd>
+                <dd>San Patricio</dd>
+                <dd>San Pedro Apóstol</dd>
+                <dd>San Roque</dd>
+                <dd>Santa Ana</dd>
+                <dd>Santa Infancia</dd>
+                <dd>Santa Teresa</dd>
+                <dd>Santo Domingo</dd>
+                <dd>Santo Tomás
+                <dd>Sor María</dd>
+                <dd>Superior Manuel Belgrano</dd>
+                <dd>Syria Poletti</dd>
+
+                <dt>T</dt>
+                <dd>Taborín</dd>
+
+                <dt>V</dt>
+                <dd>Villada</dd>
+            </dl>
+        </div>
+    </main>
 </body>
+
 </html>
