@@ -2,34 +2,169 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Oi&family=Varela+Round&display=swap">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{data.title}}</title>
 </head>
 
 <body>
-    <h1>Registrarse</h1>
-    <form method="POST" action="{{url_for('signup')}}">
-        <input class="name" type="text" placeholder="Insgrese su nombre" name="nombre" required>
-        <input class="lastname" type="text" placeholder="Insgrese su apellido" name="apellidos" required>
-        <input class="DNI" type="text" placeholder="Insgrese su dni" name="dni" required>
-        <input class="mail" type="text" placeholder="Insgrese su email" name="email" required>
-        <input class="pswrd" type="text" placeholder="Insgrese su contraseña" name="password" required>
-        <label for="actividad">Actividad:</label>
-        <select class="activity" name="actividad" id="actividad" required>
-            <option value="" disabled selected>Seleccione su actividad</option>
-            <option value="Visitante">Visitante</option>
-            <option value="Jugador">Jugador</option>
-        </select>
-        <label for="escuela">Escuela:</label>
-        <select class="school" name="escuela" id="escuela" required>
-            <option value="" disabled selected>Seleccione su escuela</option>
-            <option value="ITR">ITR</option>
-            <option value="Luti">Luti</option>
-            <option value="Ipet 76">Ipet 76</option>
-        </select>
-        <input type="submit" placeholder="">
-    </form>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="{{ url_for('static', filename='img/image.png') }}" alt="Logo" style="height:40px; width:auto;" />
+        </div>
+        <ul class="navbar-links">
+            {% if session['usuario'] %}
+            <li>
+                <span style="font-family: sans-serif; color: #ffffff; margin-right: 20px;">Hola
+                    {{nombre_usuario}}</span>
+            </li>
+            <li><a class="navbar-link" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+            {% else %}
+            <li><a class="navbar-link" href="{{ url_for('login') }}">Iniciar Sesión</a></li>
+            <li><a class="navbar-link" href="{{ url_for('index') }}">INICIO</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="fixed_footer">
+        <p style="font-family: Abel;">&copy; 2025 Instituto Tecnico Renault. Todos los derechos reservados.</p>
+        <nav>
+            <a class="footers-btns" href="/contacto">Contacto</a> |
+            <a class="footers-btns" href="/privacidad">Política de Privacidad</a> |
+            <a class="footers-btns" href="/terminos">Términos y Condiciones</a>
+        </nav>
+    </footer>
+
+    <main class="main_content">
+        <h1>Registrarse</h1>
+        <form class="register_container" method="POST" action="{{url_for('signup')}}">
+            <input class="signup-btn" type="text" placeholder="Nombre" name="nombre" required>
+            <input class="signup-btn" type="text" placeholder="Apellido" name="apellidos" required>
+            <input class="signup-btn" type="text" placeholder="DNI" name="dni" required>
+            <input class="signup-btn" type="text" placeholder="Email" name="email" required>
+            <input class="signup-btn" type="text" placeholder="Contraseña" name="password" required>
+            <select class="selector" name="actividad" id="actividad" required>
+                <option value="" disabled selected>Actividad</option>
+                <option value="Visitante">Visitante</option>
+                <option value="Jugador">Jugador</option>
+            </select>
+            <select class="selector" name="escuela" id="escuela" required>
+                <option value="" disabled selected hidden>Escuela</option>
+                <option value="Academia Argüello">Academia Argüello</option>
+                <option value="Adoratrices">Adoratrices</option>
+                <option value="Adventista">Adventista</option>
+                <option value="Alemán">Alemán</option>
+                <option value="Amparo de María">Amparo de María</option>
+                <option value="Anglo Americano AG">Anglo Americano AG</option>
+                <option value="Balseiro">Balseiro</option>
+                <option value="Bioy Casares">Bioy Casares</option>
+                <option value="Caixal">Caixal</option>
+                <option value="Castelfranco">Castelfranco</option>
+                <option value="Cinco Rios">Cinco Rios</option>
+                <option value="Colegio 25 de Mayo">Colegio 25 de Mayo</option>
+                <option value="Colegio del Carmen">Colegio del Carmen</option>
+                <option value="Colegio Gral Manuel Belgrano Armenio">Colegio Gral Manuel Belgrano Armenio</option>
+                <option value="Colegio Maria de Nazareth">Colegio Maria de Nazareth</option>
+                <option value="Corazón de María">Corazón de María</option>
+                <option value="Cristo Rey">Cristo Rey</option>
+                <option value="Dante Alighieri">Dante Alighieri</option>
+                <option value="Dante Alighieri Carlos Paz">Dante Alighieri Carlos Paz</option>
+                <option value="De Maria">De Maria</option>
+                <option value="Domingo Savio">Domingo Savio</option>
+                <option value="Dominicas">Dominicas</option>
+                <option value="Don Orione">Don Orione</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="El Torreon">El Torreon</option>
+                <option value="Escuela Kumelen">Escuela Kumelen</option>
+                <option value="Escuelas Pias Mendiolaza">Escuelas Pias Mendiolaza</option>
+                <option value="Escuti">Escuti</option>
+                <option value="Espíritu Santo">Espíritu Santo</option>
+                <option value="FASTA Santo Domingo">FASTA Santo Domingo</option>
+                <option value="Fasta Villa Eucaristica">Fasta Villa Eucaristica</option>
+                <option value="Garcia Faure">Garcia Faure</option>
+                <option value="Hortus Conclusus">Hortus Conclusus</option>
+                <option value="Huerto">Huerto</option>
+                <option value="Inmaculada">Inmaculada</option>
+                <option value="Integral Manuel Belgrano">Integral Manuel Belgrano</option>
+                <option value="Instituto America">Instituto America</option>
+                <option value="Instituto Educativo Cita con la Vida">Instituto Educativo Cita con la Vida</option>
+                <option value="Instituto Inmaculada Concepción">Instituto Inmaculada Concepción</option>
+                <option value="Instituto Juan Zorrilla de San Martin">Instituto Juan Zorrilla de San Martin</option>
+                <option value="Instituto Ramon García Martinez (Casona)">Instituto Ramón García Martinez (Casona)
+                </option>
+                <option value="Instituto San Jeronimo">Instituto San Jeronimo</option>
+                <option value="Instituto Santísima Trinidad">Instituto Santísima Trinidad</option>
+                <option value="Instituto Tecnico Renault">Instituto Tecnico Renault</option>
+                <option value="Isaac Newton">Isaac Newton</option>
+                <option value="Jesús María">Jesús María</option>
+                <option value="Jockey">Jockey</option>
+                <option value="Jorge Vocos Lescano">Jorge Vocos Lescano</option>
+                <option value="José Hernandez">José Hernandez</option>
+                <option value="Jóvenes Argentinos">Jóvenes Argentinos</option>
+                <option value="La Salle">La Salle</option>
+                <option value="Loreto">Loreto</option>
+                <option value="Luis Manuel Robles">Luis Manuel Robles</option>
+                <option value="Luterano">Luterano</option>
+                <option value="Madres Escolapias">Madres Escolapias</option>
+                <option value="Mantovani">Mantovani</option>
+                <option value="Manuel de Falla">Manuel de Falla</option>
+                <option value="Mark Twain">Mark Twain</option>
+                <option value="Maryland">Maryland</option>
+                <option value="Mater Purissima">Mater Purissima</option>
+                <option value="Milenio">Milenio</option>
+                <option value="Misericordia">Misericordia</option>
+                <option value="Monjas Azules">Monjas Azules</option>
+                <option value="Monserrat">Monserrat</option>
+                <option value="Nievas">Nievas</option>
+                <option value="Nores">Nores</option>
+                <option value="Nuestra Señora de La Merced">Nuestra Señora de La Merced</option>
+                <option value="Nuevo Siglo">Nuevo Siglo</option>
+                <option value="Padre Claret">Padre Claret</option>
+                <option value="Parroquial Nuestra Señora del Valle">Parroquial Nuestra Señora del Valle</option>
+                <option value="Paula Albarracín">Paula Albarracín</option>
+                <option value="Peña">Peña</option>
+                <option value="Pías">Pías</option>
+                <option value="Pio X">Pio X</option>
+                <option value="Primera Enseñanza">Primera Enseñanza</option>
+                <option value="Raggi">Raggi</option>
+                <option value="Rosarito Vera Peñaloza">Rosarito Vera Peñaloza</option>
+                <option value="Sagrada Familia">Sagrada Familia</option>
+                <option value="Sagrado Corazón">Sagrado Corazón</option>
+                <option value="San Agustin">San Agustin</option>
+                <option value="San Antonio de Padua">San Antonio de Padua</option>
+                <option value="San Buenaventura">San Buenaventura</option>
+                <option value="San Francisco de Asis">San Francisco de Asis</option>
+                <option value="San Isidro">San Isidro</option>
+                <option value="San Jorge">San Jorge</option>
+                <option value="San Jose Centro">San Jose Centro</option>
+                <option value="San José Artesano">San José Artesano</option>
+                <option value="San José Sol de Mayo">San José Sol de Mayo</option>
+                <option value="San Miguel">San Miguel</option>
+                <option value="San Pablo Apóstol">San Pablo Apóstol</option>
+                <option value="San Patricio">San Patricio</option>
+                <option value="San Pedro Apóstol">San Pedro Apóstol</option>
+                <option value="San Roque">San Roque</option>
+                <option value="Santa Ana">Santa Ana</option>
+                <option value="Santa Infancia">Santa Infancia</option>
+                <option value="Santa Teresa">Santa Teresa</option>
+                <option value="Santo Domingo">Santo Domingo</option>
+                <option value="Santo Tomás">Santo Tomás</option>
+                <option value="Sor María">Sor María</option>
+                <option value="Superior Manuel Belgrano">Superior Manuel Belgrano</option>
+                <option value="Syria Poletti">Syria Poletti</option>
+                <option value="Taborín">Taborín</option>
+                <option value="Villada">Villada</option>
+
+            </select>
+            <input class="submit_btn" type="submit">
+        </form>
+    </main>
+
 </body>
 
 </html>

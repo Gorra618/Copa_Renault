@@ -3,18 +3,145 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teams.css') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Oi&family=Varela+Round&display=swap">
     <title>Equipos</title>
 </head>
 
 <body>
     <!-- NAVBAR -->
-    {% include 'navbar.html' %}
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="{{ url_for('static', filename='img/image.png') }}" alt="Logo" style="height:40px; width:auto;" />
+        </div>
+        <ul class="navbar-links">
+            {% if session['usuario'] %}
+            <li>
+                <span style="font-family: sans-serif; color: #ffffff; margin-right: 20px;">Hola
+                    {{nombre_usuario}}</span>
+            </li>
+            <li><a class="navbar-link" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+            <li><a class="navbar-link" href="{{ url_for('index') }}">INICIO</a></li>
+            {% else %}
+            <li><a class="navbar-link" href="{{ url_for('login') }}">Iniciar Sesión</a></li>
+            <li><a class="navbar-link" href="{{ url_for('signup') }}">Registrarse</a></li>
+            <li><a class="navbar-link" href="{{ url_for('index') }}">INICIO</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
     <!-- FOOTER -->
-    {% include 'footer.html' %}
+    <footer class="fixed_footer">
+        <p style="font-family: Abel;">&copy; 2025 Instituto Tecnico Renault. Todos los derechos reservados.</p>
+        <nav>
+            <a class="footers-btns" href="/contacto">Contacto</a> |
+            <a class="footers-btns" href="/privacidad">Política de Privacidad</a> |
+            <a class="footers-btns" href="/terminos">Términos y Condiciones</a>
+        </nav>
+    </footer>
+
+    <!-- MAIN -->
+    <main class="main_content">
+        <div class="container">
+            <h1 class="main_title">EQUIPOS</h1>
+            <h1 class="center">Futbol</h1>
+
+            <article class="team">
+                <div class="team__number">01</div>
+                <div class="team__content">
+                    <div class="title">Equipo 1</div>
+                    <div class="team_description">
+                        <p>descripcion de equipo 1</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="team">
+                <div class="team__number">02</div>
+                <div class="team__content">
+                    <div class="title">Equipo 2</div>
+                    <div class="team_description">
+                        <p>descripcion de equipo 2</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="team">
+                <div class="team__number">03</div>
+                <div class="team__content">
+                    <div class="title">Episode 3</div>
+                    <div class="team_description">
+                        <p>descripcion de equipo 3</p>
+                    </div>
+                </div>
+            </article>
+            <h1 class="center">Basquet</h1>
+
+            <article class="team">
+                <div class="team__number">01</div>
+                <div class="team__content">
+                    <div class="title">Equipo 1</div>
+                    <div class="team_description">
+                        <p>descripcion de equipo 1</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="team">
+                <div class="team__number">02</div>
+                <div class="team__content">
+                    <div class="title">Equipo 2</div>
+                    <div class="team_description">
+                        <p>descripcion de equipo 2</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="team">
+                <div class="team__number">03</div>
+                <div class="team__content">
+                    <div class="title">Episode 3</div>
+                    <div class="team_description">
+                        <p>descripcion de equipo 3</p>
+                    </div>
+                </div>
+            </article>
+            <h1 class="center">Voley</h1>
+
+            <article class="team">
+                <div class="team__number">01</div>
+                <div class="team__content">
+                    <div class="title">Equipo 1</div>
+                    <div class="team_description">
+                        <p>descripcion de equipo 1</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="team">
+                <div class="team__number">02</div>
+                <div class="team__content">
+                    <div class="title">Equipo 2</div>
+                    <div class="team_description">
+                        <p>descripcion de equipo 2</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="team">
+                <div class="team__number">03</div>
+                <div class="team__content">
+                    <div class="title">Episode 3</div>
+                    <div class="team_description">
+                        <p>descripcion de equipo 3</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,13 +13,43 @@
 </head>
 
 <body>
-    {% include 'navbar.html' %}
-    <h1 class="login-title">Iniciar Sesion</h1>
-    <form class="login-container" method="POST" action="{{ url_for('login') }}">
-        <input class="login-input" type="text" name="email" placeholder="Email" required>
-        <input class="login-input" type="password" name="password" placeholder="Contraseña" required>
-        <input class="login-submit" type="submit" value="Iniciar Sesión">
-    </form>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="{{ url_for('static', filename='img/image.png') }}" alt="Logo" style="height:40px; width:auto;" />
+        </div>
+        <ul class="navbar-links">
+            {% if session['usuario'] %}
+            <li>
+                <span style="font-family: sans-serif; color: #ffffff; margin-right: 20px;">Hola
+                    {{nombre_usuario}}</span>
+            </li>
+            <li><a class="navbar-link" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+            {% else %}
+            <li><a class="navbar-link" href="{{ url_for('signup') }}">Registrarse</a></li>
+            <li><a class="navbar-link" href="{{ url_for('index') }}">INICIO</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="fixed_footer">
+        <p style="font-family: Abel;">&copy; 2025 Instituto Tecnico Renault. Todos los derechos reservados.</p>
+        <nav>
+            <a class="footers-btns" href="/contacto">Contacto</a> |
+            <a class="footers-btns" href="/privacidad">Política de Privacidad</a> |
+            <a class="footers-btns" href="/terminos">Términos y Condiciones</a>
+        </nav>  
+    </footer>
+    <main class="main_content">
+        <h1 class="login-title">Iniciar Sesion</h1>
+        <form class="login-container" method="POST" action="{{ url_for('login') }}">
+            <input class="login-input" type="text" name="email" placeholder="Email" required>
+            <input class="login-input" type="password" name="password" placeholder="Contraseña" required>
+            <input class="login-submit" type="submit" value="Iniciar Sesión">
+        </form>
+    </main>
+
 
 </body>
 

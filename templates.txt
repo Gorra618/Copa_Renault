@@ -1,0 +1,109 @@
+[NAVBAR]
+(HTML)
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="{{ url_for('static', filename='img/image.png') }}" alt="Logo" style="height:40px; width:auto;" />
+        </div>
+        <ul class="navbar-links">
+            {% if session['usuario'] %}
+            <li>
+                <span style="font-family: sans-serif; color: #ffffff; margin-right: 20px;">Hola {{nombre_usuario}}</span>
+            </li>
+            <li><a class="navbar-link" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+            {% else %}
+            <li><a class="navbar-link" href="{{ url_for('login') }}">Iniciar Sesión</a></li>
+            <li><a class="navbar-link" href="{{ url_for('signup') }}">Registrarse</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+(CSS)
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 70px;
+	background: rgb(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 10;
+	padding: 0 30px;
+	box-sizing: border-box;
+}
+
+.navbar-logo img {
+	height: 40px;
+	width: auto;
+}
+
+.navbar-links {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar-link {
+	width: 260px;
+	padding: 10px;
+	margin: 0;
+	font-size: 1em;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	color: white;
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background 0.2s, color 0.2s;
+}
+
+.navbar-link:hover {
+	background: #ffd900;
+    text-decoration: none;
+	color: #111;
+}
+.navbar-link:hover:after {
+	top: 0;
+	height: 100%;
+}
+
+
+[FOOTER]
+(HTML)
+    <footer class="fixed_footer">
+        <p style="font-family: Abel;">&copy; 2025 Instituto Tecnico Renault. Todos los derechos reservados.</p>
+        <nav>
+            <a class="footers-btns" href="/contacto">Contacto</a> |
+            <a class="footers-btns" href="/privacidad">Política de Privacidad</a> |
+            <a class="footers-btns" href="/terminos">Términos y Condiciones</a>
+        </nav>  
+    </footer>
+
+(CSS)
+.fixed_footer {
+	width: 100%;
+	height: 150px;
+	background: #111;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: -1;
+}
+.fixed_footer p {
+	color: #696969;
+	column-count: 2;
+	column-gap: 50px;
+	font-size: 1em;
+	font-weight: 300;
+}
+.footers-btns{
+    color: #ffd900;
+    gap: 18px;
+    padding-left: 0;
+    font-family: sans-serif;
+}
