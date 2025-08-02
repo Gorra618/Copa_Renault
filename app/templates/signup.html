@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Oi&family=Varela+Round&display=swap">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{data.title}}</title>
@@ -16,6 +17,14 @@
         <div class="navbar-logo">
             <img src="{{ url_for('static', filename='img/image.png') }}" alt="Logo" style="height:40px; width:auto;" />
         </div>
+        <div class="navbar-navegators">
+            <a class="navbar-navegator" href="{{ url_for('index') }}"> INICIO</a>
+            <a class="navbar-navegator" href="{{ url_for('teams') }}">Equipos</a>
+            <a class="navbar-navegator" href="{{ url_for('schools') }}">Escuelas</a>
+            <a class="navbar-navegator" href="{{ url_for('shop') }}">Cantina</a>
+            <a class="navbar-navegator" href="{{ url_for('owners') }}">Organizadores</a>
+
+        </div>
         <ul class="navbar-links">
             {% if session['usuario'] %}
             <li>
@@ -24,8 +33,7 @@
             </li>
             <li><a class="navbar-link" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
             {% else %}
-            <li><a class="navbar-link" href="{{ url_for('login') }}">Iniciar Sesión</a></li>
-            <li><a class="navbar-link" href="{{ url_for('index') }}">INICIO</a></li>
+            <li><a class="navbar-link" href="{{ url_for('login') }}">Iniciar Sesion</a></li>
             {% endif %}
         </ul>
     </nav>
@@ -158,7 +166,7 @@
                 <option value="Superior Manuel Belgrano">Superior Manuel Belgrano</option>
                 <option value="Syria Poletti">Syria Poletti</option>
                 <option value="Taborín">Taborín</option>
-                <option value="Villada">Villada</option>
+                <option value="Villada">Villada</option>    
 
             </select>
             <input class="submit_btn" type="submit">

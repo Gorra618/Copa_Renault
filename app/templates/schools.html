@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/schools.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Oi&family=Varela+Round&display=swap" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schools</title>
+    <title>|🏫Escuelas</title>
 </head>
 
 <body>
@@ -14,6 +16,13 @@
         <div class="navbar-logo">
             <img src="{{ url_for('static', filename='img/image.png') }}" alt="Logo" style="height:40px; width:auto;" />
         </div>
+        <div class="navbar-navegators">
+            <a class="navbar-navegator" href="{{ url_for('index') }}">INICIO</a>
+            <a class="navbar-navegator" href="{{ url_for('teams') }}">Equipos</a>
+            <a class="navbar-navegator" href="{{ url_for('shop') }}">Cantina</a>
+            <a class="navbar-navegator" href="{{ url_for('owners') }}">Organizadores</a>
+
+        </div>
         <ul class="navbar-links">
             {% if session['usuario'] %}
             <li>
@@ -21,14 +30,12 @@
                     {{nombre_usuario}}</span>
             </li>
             <li><a class="navbar-link" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
-            <li><a class="navbar-link" href="{{ url_for('index') }}">INICIO</a></li>
             {% else %}
-            <li><a class="navbar-link" href="{{ url_for('login') }}">Iniciar Sesión</a></li>
-            <li><a class="navbar-link" href="{{ url_for('signup') }}">Registrarse</a></li>
-            <li><a class="navbar-link" href="{{ url_for('index') }}">INICIO</a></li>
+            <li><a class="navbar-link" href="{{ url_for('login') }}">Iniciar Sesion</a></li>
             {% endif %}
         </ul>
     </nav>
+
 
     <!-- FOOTER  -->
     <footer class="fixed_footer">

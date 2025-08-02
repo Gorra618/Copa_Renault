@@ -24,7 +24,7 @@ def index():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    data = {"title": "Login"}
+    data = {"title": "|🟡 Iniciar Sesion"}
     if "usuario" in session:
         return redirect(url_for("index"))
     error = None
@@ -71,7 +71,7 @@ def signup():
         session["usuario"] = email
         session["nombre"] = nombre
         return redirect(url_for("index"))
-    data = {"title": "Sign Up"}
+    data = {"title": "|🟡 Sign Up "}
     return render_template("signup.html", data=data)
 
 
