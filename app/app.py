@@ -85,6 +85,9 @@ def logout():
 def teams():
     return render_template("teams.html")
 
+@app.route("/fixture")
+def fixture():
+    return render_template("fixture.html")
 
 @app.route("/schools")
 def schools():
@@ -107,4 +110,4 @@ def inject_user():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=3300)
+    app.run(debug=True, port=5400)

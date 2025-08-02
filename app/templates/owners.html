@@ -26,8 +26,8 @@
         <ul class="navbar-links">
             {% if session['usuario'] %}
             <li>
-                <span style="font-family: sans-serif; color: #ffffff; margin-right: 20px;">Hola
-                    {{nombre_usuario}}</span>
+                <span style="font-family: sans-serif; color: #ffffff; margin-right: 20px;">Hola {{nombre_usuario}}</span>
+
             </li>
             <li><a class="navbar-link" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
             {% else %}
@@ -68,7 +68,7 @@
                         </div>
                     </a>
                 </div>
-
+                <!-- ALUMNOS -->
                 <div class="ag-courses_item">
                     <a href="#" class="ag-courses-item_link">
                         <div class="ag-courses-item_bg"></div>
@@ -77,7 +77,8 @@
                         </div>
                     </a>
                 </div>
-
+                
+                <!-- PADRES -->
                 <div class="ag-courses_item">
                     <a href="#" class="ag-courses-item_link">
                         <div class="ag-courses-item_bg"></div>

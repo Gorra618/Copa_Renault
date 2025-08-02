@@ -53,6 +53,8 @@ a img.icon {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	text-shadow:0.5rem 0.5rem 0.5rem #333;
+
 	justify-content: center;
 	font-family: "Oi", sans-serif;
 	font-size: 90px;
@@ -134,7 +136,6 @@ p {
 .main_content {
 	background: #ffd900;
 	background-size: cover;
-    
 }
 
 .map-container {
@@ -232,7 +233,7 @@ p {
 
 .navbar-link:hover {
 	background: #ffd900;
-    text-decoration: none;
+	text-decoration: none;
 	color: #111;
 }
 .navbar-link:hover:after {
@@ -258,9 +259,9 @@ p {
 	font-size: 1em;
 	font-weight: 300;
 }
-.footers-btns{
-    color: #ffd900;
-    gap: 18px;
-    padding-left: 0;
-    font-family: sans-serif;
+.footers-btns {
+	color: #ffd900;
+	gap: 18px;
+	padding-left: 0;
+	font-family: sans-serif;
 }
